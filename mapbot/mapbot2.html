@@ -3,13 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mehrfachauswahl Dropdown</title>
-    <link rel="stylesheet" href="mapbotStyle.css">
+    <title>Zufällige Ergebnisse bei Mehrfachauswahl</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        select {
+            width: 200px;
+            height: 150px;
+        }
+
+        #ergebnis {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #007BFF;
+        }
+    </style>
 </head>
 <body>
-    <h1>Mehrfachauswahl Dropdown</h1>
+    <h1>Mehrfachauswahl Dropdown mit Zufallsergebnis</h1>
     
-    <form action="#" method="post">
+    <form id="auswahlForm">
         <label for="auswahl">Wähle mehrere Optionen:</label>
         <br>
         <select id="auswahl" name="optionen" multiple>
@@ -21,6 +41,41 @@
         </select>
     </form>
 
-    <p>Halte die "Strg"-Taste (Windows) oder die "Cmd"-Taste (Mac) gedrückt, um mehrere Optionen auszuwählen.</p>
+    <button onclick="getRandomResult()">Zufälliges Ergebnis anzeigen</button>
+
+    <div id="ergebnis"></div>
+
+    <script>
+        // Array mit zufälligen Ergebnissen für jede Option
+        const ergebnisse = {
+            "option1": ["A Balanced Germanosphere", "A Community Germany", "Geotime Switzerland"],
+            "option2": ["An Improved World", "AI Generated World", "An Arbitrary World"], 
+            "option3": ["USA", "Russia", "Brazil"],
+            "option4": ["Saarland", "Hessen", "Bayern"],
+            "option5": ["lakes and rivers", "Geoguessr Saturday", "Superflat"]
+        };
+
+        function getRandomResult() {
+            // Alle ausgewählten Optionen abrufen
+            const selectElement = document.getElementById('auswahl');
+            const selectedOptions = Array.from(selectElement.selectedOptions).map(option => option.value);
+
+            // Überprüfen, ob mindestens eine Option ausgewählt wurde
+            if (selectedOptions.length === 0) {
+                document.getElementById('ergebnis').textContent = "Bitte wähle mindestens eine Option aus!";
+                return;
+            }
+
+            // Ein zufälliges Ergebnis für jede ausgewählte Option ausgeben
+            let resultText = "Zufällige Ergebnisse:\n";
+            selectedOptions.forEach(option => {
+                const randomResult = ergebnisse[option][Math.floor(Math.random() * ergebnisse[option].length)];
+                resultText += `${option}: ${randomResult}\n`;
+            });
+
+            // Ergebnis auf der Seite anzeigen
+            document.getElementById('ergebnis').textContent = resultText;
+        }
+    </script>
 </body>
 </html>
