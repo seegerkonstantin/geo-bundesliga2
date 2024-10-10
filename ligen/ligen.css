@@ -1,0 +1,169 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Verdana, sans-serif;
+    background: linear-gradient(to bottom right, #1c1e4a, #74215d);
+    min-height: 100vh; /* Stellt sicher, dass es mindestens den Viewport abdeckt */
+    overflow-y: hidden; /* Verhindert horizontales Scrollen */
+    margin: 0;
+    padding: 0;
+}
+
+/*obere zeile buttons header*/
+header {
+    display: flex;
+    justify-content: center; /* Zentriert den gesamten Header-Inhalt */
+}
+
+header h1 {
+    background-color: #2a2c6b;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 36px; /* Vergrößert die Schrift */
+    text-align: center; /* Zentriert die Überschrift */
+    display: inline-block; /* Macht den Kasten nur so breit wie der Inhalt */
+    width: 50%; /* Setzt die Breite auf 50% des Containers */
+    /
+}
+
+.back-button {
+    display: inline-block;
+    background-color: #2a2c6b;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 16px;
+    border: 2px solid white;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.back-button:hover {
+    background-color: #74215d;
+}
+
+.league-button {
+    position: absolute;
+    top: 20px;
+    background-color: #2a2c6b;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 16px;
+    border: 2px solid white;
+}
+
+.league-button:hover {
+    background-color: #74215d;
+}
+
+/* Linker Button (2. Liga) */
+.league-button.left {
+    left: calc(25% - 100px); /* Links von der Mitte der Überschrift */
+}
+
+/* Rechter Button (3. Liga) */
+.league-button.right {
+    right: calc(25% - 100px); /* Rechts von der Mitte der Überschrift */
+}
+
+/*tabellen*/
+.tables-container {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 40px;
+    padding: 10px;
+}
+
+
+
+table {
+    width: 600px; /* Vergrößert die Tabelle */
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background-color: white;
+    border: 2px solid black;
+    height: 100%;
+}
+
+th, td {
+    padding: 5px;
+    border: 1px solid #000;
+    text-align: center;
+}
+
+thead {
+    background-color: #2a2c6b;
+}
+
+thead th {
+    background-color: #2a2c6b;
+    color: white; /* Setzt die Schriftfarbe auf weiß */
+}
+
+tbody td {
+    background-color: white; /* Weißer Hintergrund für den Platzhalter */
+    height: 20px; /* Höhe des weißen Kastens */
+    text-align: center;
+    font-style: italic;
+    color: #888; /* Grau für den Platzhaltertext */
+}
+
+tbody tr td {
+    background-color: white; /* Setzt weißen Hintergrund für alle Zellen */
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.last-three td{
+    background-color: hsl(0, 100%, 65%); /* Roter Hintergrund */
+}
+
+
+/*sachen außen rum*/
+.buttons-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.arrow {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 30px;
+}
+
+.submit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 20px; /* Abstand zu den Tabellen, mit mehr Abstand nach oben */
+}
+
+.submit a {
+    background-color: #2a2c6b;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 16px;
+    border: 2px solid white;
+}
+
+.submit a:hover {
+    background-color: #2a2c6b;
+}
